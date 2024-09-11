@@ -1,0 +1,50 @@
+Product
+
+Product_Name
+Price
+
+SELECT *
+FROM PRODUCT P
+WHERE EXIST (
+	SELECT 1
+	FROM PRODUCT Q
+	WHERE P.PRODUCT_NAME = Q.PRODUCT_NAME AND P.PRICE != Q.PRICE
+}
+
+==============================================================================
+User
+id
+firstName
+lastName
+MiddleName
+
+Address
+id
+addr1
+addr2
+
+Telecom
+telecomId
+type - email, phone, fax
+value
+
+User_Address
+id,
+userId,
+addrId
+
+User_Telecoms
+id,
+userId,
+telecomId
+
+SELECT U.LASTNAME
+FROM USER U
+WHERE U.ID IN (SELECT UT.USERID
+	FROM USER_TELECOM UT
+	INNER JOIN TELECOM T ON T.TELECOMID = UT.TELECOMID
+	WHERE T.TYPE = 'email'
+	GROUP BY UT.USERID
+	HAVING COUNT(*) > 2)
+==============================================================================
+Find 3 highest salary and its details

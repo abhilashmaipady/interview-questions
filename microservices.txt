@@ -1,0 +1,7 @@
+* Design Pattern Micro Service
+* Handle Failure in Micro Service
+* How to handle distributed transaction
+* Propogation and Isolation
+* Saga Pattern
+* CQRS Pattern
+* Bulkhead Pattern

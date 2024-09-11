@@ -1,0 +1,14 @@
+* Spring bean lifecycle
+* Spring actuators liveness & readiness
+* How to override spring actuators endpoint
+* spring multi data source entity from multiple source
+* spring starter dependency
+* Time complexity
+* Fetch Type
+* Primary Key Auto Increment
+* Bean injection based on condition
+* fetch external configuration
+* How to restict number of api 
+* caching
+* Attach bunch of security filters
+

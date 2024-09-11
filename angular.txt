@@ -1,0 +1,45 @@
+* let vs var
+
+@service(
+{
+ provideIn: root
+})
+class ExampleService {
+
+ private _exampleSubject = new Subject();
+ example$ = _exampleSubject.asObservable();
+ constructor() {
+ }
+}
+
+@component()
+class ExampleComement {
+
+constructor(private exampleService: ExampleService) {
+
+}
+}
+ 
+Observable vs Promise
+ViewEncapsulation
+Directive
+
+
+class ExampleComponent {
+
+	exampleForm = new FormGroup({
+		id: new FormControl('', Validators.required)
+	};
+	
+	method() {
+	 	console.log(exampleForm.get('id').value);
+	}
+}
+
+<div form="exampleForm">
+	ID : <input type="text" formControl="id"/>
+</div>
+
+str = 'test = {{t}}';
+
+pure pipe vs impure pipe

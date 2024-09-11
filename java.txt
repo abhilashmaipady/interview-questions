@@ -1,0 +1,144 @@
+* What is optional class
+* Types of default method
+* How to create Immutable class
+* How to create Singleton class and how to break it
+* What is complteble Future
+* Abstract Class vs Interface
+* Hashmap collision improvement in Java 8
+* Memory improvement in Java 8
+* Garbage collector improvement in Java 8
+* What is memory profiling
+* 
+
+==============================
+empList.stream().Collect(Collectors.groupingBy(emp -> emp.getDeptId(), Collectors.toMap(emp -> emp.getName()).toList()));
+
+==============================
+class BinarySearchExample {
+  int[] arr;
+  int length;
+  
+  BinarySearchExample() {
+  	this.arr = new int[100];
+  	this.length = 0;
+  }
+  
+  boolean search(int searchItem) {
+    int ieft = 0;
+    int right = length-1;
+    return searchItem(left, right);
+  }
+  
+  boolean searchItem(int searchItem, int left, int right) {
+    if(left > right) return false;
+    int middle = (left + right)/2;
+    if(arr[middle] == searchItem) return true;
+    else if(arr[middle] > searchItem) return searchItem(searchItem, left, middle-1);
+    else if(arr[middle] < searchItem) return searchItem(searchItem, middle+1, right);
+  }
+}
+
+==============================
+Given an array of positive integers nums and a positive integer target, return the minimal length of a 
+subarray
+whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
+
+[1, 5, 8, 9]
+
+
+Input: target = 7, nums = [2,3,1,2,4,3]
+Output: 2
+Explanation: The subarray [4,3] has the minimal length under the problem constraint.
+==============================
+Input = 'altimetrik'
+Output = a2 l1 t1 i2 m1 e1 r1 k1
+
+void CountChar(String input) {
+	//Map countMap = new HashMap<Charater, Integer>();
+	
+	Map<Charater, Integer>() countMap = input.chars().mapToObj(c -> (Character) c).collect(Collectors.groupBy(Functions.idendity(), Collectors.counting()));
+	
+	for(char c: input) {
+		int count = countMap.get(c);
+		if(count == 0) continue;
+		System.out.print(c+count+" ");
+		countMap.put(c, 0);
+	}
+}
+==============================
+int[] arr = {2, 8, 9, 11, 15}
+int target = 10;
+
+Map indexMap = new HashMap<Integer, Integer>();
+
+for(int i=0; i < arr.size(); i++) {
+	indexMap.put(arr[i], i);
+}
+
+for(Map.Entry entry: indexMap.entrySet()) {
+	if(indexMap.get(target - entry.getKey()) != null) {
+		System.out.println("{"+entry.getValue()+","+indexMap.get(target - entry.getKey()).getValue()+"}");
+	}
+}
+==============================
+
+Stream<Character> characterStream = testString.chars()
+  .mapToObj(c -> (char) c);
+  
+Map<BlogPostType, List<BlogPost>> postsPerType = posts.stream()
+  .collect(groupingBy(BlogPost::getType));
+  
+Map<BlogPostType, List<BlogPost>> postsPerType = posts.stream()
+  .collect(groupingBy(BlogPost::getType));
+  
+Map<String, Map<BlogPostType, List>> map = posts.stream()
+  .collect(groupingBy(BlogPost::getAuthor, groupingBy(BlogPost::getType)));
+
+==============================
+interface A {
+
+	public default void print() {
+
+		SOP (A is called);
+
+	}
+
+}
+ 
+interface B {
+
+	public default void print() {
+
+		SOP (B is called);
+
+	}
+
+}
+ 
+class ABC implements A, B {
+
+	implements print here?
+	public void print() {
+
+		A.super.print();
+
+	}
+
+}
+
+==============================
+
+-->> Move the zero to the last in an array.
+int[] arr = {1, 2, 0,  4, 0, 3, 0, 0, 8, 0,6, 5};
+
+
+ int i=0;
+
+while(i < arr.length) {
+  while(arr[i]!=0) i++;
+  int j = i+1;
+  while(j < arr.length && arr[j]!=0) j++;
+  if(arr[j] != 0)
+    swap(arr[i], arr[j]);
+    
+}
